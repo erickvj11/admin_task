@@ -129,7 +129,7 @@
             <h6 class="dropdown-header">Reporte de:</h6>
             <a class="dropdown-item" href="reporteUsuarios.php">Usuarios</a>
             <a class="dropdown-item" href="reporteProyectos.php">Proyectos</a>
-            <a class="dropdown-item" href="reportecontadores.php">Contadores</a>
+            <a class="dropdown-item" href="reporteContadores.php">Contadores</a>
             <a class="dropdown-item" href="reporteTareas.php">Tareas</a>
             <a class="dropdown-item" href="reporteTareasAsignadas.php">Tareas Asignadas</a>
           </div>
