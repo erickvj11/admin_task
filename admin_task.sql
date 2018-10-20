@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 11-08-2018 a las 14:22:45
+-- Tiempo de generación: 20-10-2018 a las 15:27:48
 -- Versión del servidor: 5.5.24-log
 -- Versión de PHP: 5.4.3
 
@@ -30,33 +30,67 @@ CREATE TABLE IF NOT EXISTS `asignaciontareas` (
   `idAsignacion` int(11) NOT NULL AUTO_INCREMENT,
   `idProyecto` int(11) NOT NULL,
   `idTarea` int(11) NOT NULL,
-  `idDesarrollador` int(11) NOT NULL,
+  `idContador` int(11) NOT NULL,
   `horasEstimadas` int(11) NOT NULL,
   `comentarios` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
+  `fechaAsignacion` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
+  `fechaFinalizacion` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`idAsignacion`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=4 ;
+
+--
+-- Volcado de datos para la tabla `asignaciontareas`
+--
+
+INSERT INTO `asignaciontareas` (`idAsignacion`, `idProyecto`, `idTarea`, `idContador`, `horasEstimadas`, `comentarios`, `fechaAsignacion`, `fechaFinalizacion`) VALUES
+(1, 3, 1, 3, 20, 'Realizar carga de datos', '0000-00-00', '0000-00-00'),
+(2, 3, 1, 1, 20, 'Prueba de Registro', '18/10/2018', '19/10/2018'),
+(3, 9, 1, 3, 20, 'Debe presentarse al gerente', '19/10/2018', '21/10/2018');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `desarrolladores`
+-- Estructura de tabla para la tabla `contadores`
 --
 
-CREATE TABLE IF NOT EXISTS `desarrolladores` (
-  `idDesarrollador` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `contadores` (
+  `idContador` int(11) NOT NULL AUTO_INCREMENT,
   `Nombre` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `Cedula` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
-  PRIMARY KEY (`idDesarrollador`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci COMMENT='Registra los desarrolladores' AUTO_INCREMENT=4 ;
+  PRIMARY KEY (`idContador`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci COMMENT='Registra los contadores' AUTO_INCREMENT=4 ;
 
 --
--- Volcado de datos para la tabla `desarrolladores`
+-- Volcado de datos para la tabla `contadores`
 --
 
-INSERT INTO `desarrolladores` (`idDesarrollador`, `Nombre`, `Cedula`) VALUES
+INSERT INTO `contadores` (`idContador`, `Nombre`, `Cedula`) VALUES
 (1, 'Erick Vega JimÃ©nez', '111760371'),
 (2, 'Alejandro Vega', '112430865'),
 (3, 'Stephanie Conejo', '112780527');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `estadostareas`
+--
+
+CREATE TABLE IF NOT EXISTS `estadostareas` (
+  `idestado` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
+  PRIMARY KEY (`idestado`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=6 ;
+
+--
+-- Volcado de datos para la tabla `estadostareas`
+--
+
+INSERT INTO `estadostareas` (`idestado`, `descripcion`) VALUES
+(1, 'Nuevo'),
+(2, 'En Proceso'),
+(3, 'Revisión'),
+(4, 'Finalizado'),
+(5, 'Cancelado');
 
 -- --------------------------------------------------------
 
@@ -71,7 +105,7 @@ CREATE TABLE IF NOT EXISTS `proyectos` (
   `fechaEntrega` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
   `descripcion` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`idproyecto`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci COMMENT='Alamacena los proyectos del Sistema' AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci COMMENT='Alamacena los proyectos del Sistema' AUTO_INCREMENT=12 ;
 
 --
 -- Volcado de datos para la tabla `proyectos`
@@ -87,7 +121,8 @@ INSERT INTO `proyectos` (`idproyecto`, `nombre`, `fechaInicio`, `fechaEntrega`, 
 (7, 'Sistema de Facturacion e Inventario', '23/08/2018', '23/09/2018', 'Punto de Venta, CXC CXP Inventarios'),
 (8, 'Sistema de Facturacion e Inventario', '23/08/2018', '23/09/2018', 'Punto de Venta, CXC CXP Inventarios'),
 (9, 'sistemas de gerencia', '23/08/2018', '23/09/2018', 'Generacion de reportes'),
-(10, 'Sistema de Facturacion v2', '23/08/2018', '23/09/2018', 'Punto de Venta, CXC CXP Contabilidad');
+(10, 'Sistema de Facturacion v2', '23/08/2018', '23/09/2018', 'Punto de Venta, CXC CXP Contabilidad'),
+(11, 'Contabilidad de Lisso', '19/10/2018', '30/11/2018', 'Se finalizar la contabilidad de los meses de Oct y Nov');
 
 -- --------------------------------------------------------
 
