@@ -40,7 +40,7 @@ $conn=Conectar();
 	
 	//if(isset($_POST["submit"])) {	
 		$insertar="INSERT INTO asignaciontareas (idproyecto, idtarea, idcontador, horasestimadas, fechaAsignacion, fechaFinalizacion, comentarios)  VALUES(".$idproyectoA.','.$idtareaA.','.$idContadorA.','.$horas.','."'$fechaAsignacion'".','."'$fechaFinalizacion'".','."'$comentarios'".')';
-		echo $insertar;
+		//echo $insertar;
 		$resultado=mysqli_query($conn, $insertar) or die ("hubo un error al insertar");
 		    mysqli_close($conn);
 		echo "Asignación registrada correctamente!!!<br>
